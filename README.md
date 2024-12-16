@@ -1,34 +1,5 @@
-# MiniJava
-Mini-Java is a subset of Java. MiniJava compiler implement a compiler for the Mini-java
-programming language.
+**سوال ۵**
 
-# Rules of MiniJava
-```
-Goal --> Source EOF
-Source --> ClassDeclarations MainClass
-MainClass --> class Identifier { public static void main() { VarDeclarations Statements}}
-ClassDeclarations --> ClassDeclaration ClassDeclarations | lambda
-ClassDeclaration --> class Identifier Extension { FieldDeclarations MethodDeclarations }
-Extension --> extends Identifier | lambda
-FieldDeclarations --> FieldDeclaration FieldDeclarations | lambda
-FieldDeclaration --> static Type Identifier ;
-VarDeclarations --> VarDeclaration VarDeclarations | lambda
-VarDeclaration --> Type Identifier ;
-MethodDeclarations --> MethodDeclaration MethodDeclarations | lambda
-MethodDeclaration --> public static Type Identifier ( Parameters ) { VarDeclarations Statements return GenExpression ; }
-Parameters --> Type Identifier Parameter | lambda
-Parameter --> , Type Identifier Parameter | lambda
-Type --> boolean | int
-Statements --> Statements Statement | lambda
-Statement --> { Statements } | if ( GenExpression ) Statement else Statement | while ( GenExpression ) Statement | System.out.println ( GenExpression ) ; | Identifier = GenExpression ;
-GenExpression --> Expression | RelExpression
-Expression --> Expression + Term | Expression - Term | Term
-Term --> Term * Factor | Factor
-Factor --> ( Expression ) | Identifier | Identifier . Identifier | Identifier . Identifier ( Arguments ) | true | false | Integer
-RelExpression --> RelExpression && RelTerm | RelTerm
-RelTerm --> Expression == Expression | Expression < Expression
-Arguments --> GenExpression Argument | lambda
-Argument --> , GenExpression Argument | lambda
-Identifier --> <IDENTIFIER_LITERAL>
-Integer --> <INTEGER_LITERAL>
-```
+پلاگین formatter-maven-plugin به توسعه‌دهندگان این امکان را می‌دهد که کدهای جاوا را با استفاده از Eclipse به‌طور خودکار فرمت کنند. هدف این پلاگین این است که کدها همیشه با یک سبک یکسان نوشته شوند، به طوری که خواندن و نگهداری کد راحت‌تر بشود.
+وقتی کدها به طور یکنواخت فرمت شوند، مشکلاتی مثل indentationهای نامناسب یا فاصله‌گذاری‌های غیرقابل‌پیش‌بینی از بین می‌روند. این پلاگین باعث می‌شود که حتی وقتی چند نفر روی یک پروژه کار می‌کنند یا پروژه تغییر می‌کند، همه کدها به یک شکل باشد.
+در واقع، این پلاگین کد را به‌طور خودکار بازآرایی می‌کند و این کار را در هنگام ساخت پروژه انجام می‌دهد. به این ترتیب، دیگر نیازی به بازآرایی دستی کدها نیست و در وقت و انرژی صرفه‌جویی می‌شود. این پلاگین می‌تواند در پروژه‌های بزرگ و تیمی خیلی کمک‌کننده باشد، چون همه افراد به یک قالب مشخص برای نوشتن کد پایبند می‌مانند.
