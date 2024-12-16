@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         ParserFacade parserFacade = new ParserFacade();
         try {
-            parserFacade.parse(new Scanner(new File("src/main/resources/code")));
+            parserFacade.startParse(new Scanner(new File("src/main/resources/code")));
         } catch (FileNotFoundException e) {
             ErrorHandler.printError(e.getMessage());
         }
