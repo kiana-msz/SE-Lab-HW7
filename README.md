@@ -1,3 +1,17 @@
+## بازآرایی‌ها
+
+**Facade**
+
+دو کلاس CodeGeneratorFacade و ParserFacade جهت اضافه کردن یک واسط برای ارتباط با کلاس‌های Parser و CodeGenerator تعریف شده که به پنهان کردن پیچیدگی‌های درونی و ایجاد یک رابط ساده برای caller ها کمک می‌کند.
+
+
+**دیگر بازآرایی‌ها**
+- چهار تابع 
+loadRules, initializeParser, shiftAction و reduceAction
+را در کلاس Parser با استفاده از بازآرایی Extract Method تفکیک کردیم.
+
+## پاسخ سوالات
+
 **سوال ۱**
 
 کد تمیز (Clean Code): کد تمیز به کدی اطلاق می‌شود که خواندن، درک و نگهداری آن آسان باشد.
