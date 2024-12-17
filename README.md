@@ -1,9 +1,16 @@
 ## بازآرایی‌ها
 
-**Facade**
+**بازآرایی Facade**
 
 دو کلاس CodeGeneratorFacade و ParserFacade جهت اضافه کردن یک واسط برای ارتباط با کلاس‌های Parser و CodeGenerator تعریف شده که به پنهان کردن پیچیدگی‌های درونی و ایجاد یک رابط ساده برای caller ها کمک می‌کند.
 
+**بازآرایی Separate Query From Modifier**
+
+توابع getTemp و getDateAddress در کلاس Memory همزمان یک فیلد را پرس‌وجو و تغییر می‌دادند. برای حل این موضوع توابع updateTempIndex و updateDataAddress اضافه شدند تا پرس‌وجو از تغییر دهنده جدا شود.
+
+**بازآرایی Self Encapsulated Field Technique**
+
+توابع به عنوان getter برای فیلدهای کلاس Address اضافه شد و از این getterها برای دسترسی به فیلدها در داخل و خارج کلاس استفاده شد.
 
 **دیگر بازآرایی‌ها**
 - چهار تابع 
