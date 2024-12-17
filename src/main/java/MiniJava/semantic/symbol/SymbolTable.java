@@ -37,6 +37,7 @@ public class SymbolTable {
 
     public void addField(String fieldName, String className) {
         klasses.get(className).fields.put(fieldName, new Symbol(lastType, mem.getDateAddress()));
+        mem.updateDataAddress();
     }
 
     public void addMethod(MethodParameters methodParameters, int address) {
@@ -57,6 +58,7 @@ public class SymbolTable {
             ErrorHandler.printError("This variable already defined");
         }
         klasses.get(methodParameters.getClassName()).methods.get(methodParameters.getMethodName()).localVariable.put(localVariableName, new Symbol(lastType, mem.getDateAddress()));
+        mem.updateDataAddress();
     }
 
     public void setSuperClass(String superClass, String className) {
@@ -135,7 +137,9 @@ public class SymbolTable {
             this.returnType = returnType;
             this.orderedParameters = new ArrayList<>();
             this.returnAddress = mem.getDateAddress();
+            mem.updateDataAddress();
             this.callerAddress = mem.getDateAddress();
+            mem.updateDataAddress();
             this.parameters = new HashMap<>();
             this.localVariable = new HashMap<>();
         }
@@ -148,6 +152,7 @@ public class SymbolTable {
 
         public void addParameter(String parameterName) {
             parameters.put(parameterName, new Symbol(lastType, mem.getDateAddress()));
+            mem.updateDataAddress();
             orderedParameters.add(parameterName);
         }
 

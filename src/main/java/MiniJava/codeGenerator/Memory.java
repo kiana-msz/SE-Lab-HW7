@@ -1,4 +1,4 @@
-package MiniJava.codeGenerator;
+package codeGenerator;
 
 import java.util.ArrayList;
 
@@ -21,13 +21,19 @@ public class Memory {
     }
 
     public int getTemp() {
+        return lastTempIndex;
+    }
+
+    public void updateTempIndex() {
         lastTempIndex += tempSize;
-        return lastTempIndex - tempSize;
     }
 
     public int getDateAddress() {
+        return lastDataAddress ;
+    }
+
+    public void updateDataAddress() {
         lastDataAddress += dataSize;
-        return lastDataAddress - dataSize;
     }
 
     public int saveMemory() {
