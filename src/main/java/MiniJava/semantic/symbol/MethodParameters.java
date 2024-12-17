@@ -1,4 +1,4 @@
-package semantic.symbol;
+package MiniJava.semantic.symbol;
 public class MethodParameters {
     private final String className;
     private final String methodName;

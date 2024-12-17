@@ -5,11 +5,11 @@ package MiniJava.semantic.symbol;
  */
 
 public enum SymbolType {
-    Int(codeGenerator.varType.Int),
-    Bool(codeGenerator.varType.Bool),
+    Int(MiniJava.codeGenerator.varType.Int),
+    Bool(MiniJava.codeGenerator.varType.Bool),
     ;
-    public final codeGenerator.varType varType;
-    SymbolType(codeGenerator.varType varType) {
+    public final MiniJava.codeGenerator.varType varType;
+    SymbolType(MiniJava.codeGenerator.varType varType) {
         this.varType = varType;
     }
 }

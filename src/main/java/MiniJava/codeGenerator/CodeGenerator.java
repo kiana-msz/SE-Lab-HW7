@@ -3,7 +3,7 @@ package MiniJava.codeGenerator;
 import MiniJava.Log.Log;
 import MiniJava.errorHandler.ErrorHandler;
 import MiniJava.scanner.token.Token;
-import semantic.symbol.MethodParameters;
+import MiniJava.semantic.symbol.MethodParameters;
 import MiniJava.semantic.symbol.Symbol;
 import MiniJava.semantic.symbol.SymbolTable;
 import MiniJava.semantic.symbol.SymbolType;
@@ -119,7 +119,7 @@ public class CodeGenerator {
         Address temp = new Address(memory.getTemp(), t);
         memory.updateTempIndex();
         ss.push(temp);
-        memory.add3AddressCode(Operation.ASSIGN, new Address(temp.getNum(), varType.Address, TypeAddress.Imidiate), new Address(symbolTable.getMethodReturnAddress(className, methodName), varType.Address), null);
+        memory.add3AddressCode(Operation.ASSIGN, new Address(temp.getNum(), varType.Address, TypeAddress.Imidiate), new Address(symbolTable.getMethodReturnAddress(new MethodParameters(className, methodName)), varType.Address), null);
         memory.add3AddressCode(Operation.ASSIGN, new Address(memory.getCurrentCodeBlockAddress() + 2, varType.Address, TypeAddress.Imidiate), new Address(symbolTable.getMethodCallerAddress(new MethodParameters(className, methodName)), varType.Address), null);
         memory.add3AddressCode(Operation.JP, new Address(symbolTable.getMethodAddress(new MethodParameters(className, methodName)), varType.Address), null, null);
 
@@ -257,7 +257,7 @@ public class CodeGenerator {
         memory.updateTempIndex();
         Address s2 = ss.pop();
         Address s1 = ss.pop();
-        iif (s1.getVarType() != varType.Bool || s2.getVarType() != varType.Bool) {
+        if (s1.getVarType() != varType.Bool || s2.getVarType() != varType.Bool) {
             ErrorHandler.printError("In and operator the operands must be boolean");
         }
         memory.add3AddressCode(Operation.AND, s1, s2, temp);
@@ -331,6 +331,7 @@ public class CodeGenerator {
         }
         memory.add3AddressCode(Operation.ASSIGN, s, new Address(symbolTable.getMethodReturnAddress(new MethodParameters(symbolStack.peek(), methodName)), varType.Address, TypeAddress.Indirect), null);
         memory.add3AddressCode(Operation.JP, new Address(symbolTable.getMethodCallerAddress(new MethodParameters(symbolStack.peek(), methodName)), varType.Address), null, null);
+
         //symbolStack.pop();
     }
 
