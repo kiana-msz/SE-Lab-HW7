@@ -4,6 +4,9 @@
 
 دو کلاس CodeGeneratorFacade و ParserFacade جهت اضافه کردن یک واسط برای ارتباط با کلاس‌های Parser و CodeGenerator تعریف شده که به پنهان کردن پیچیدگی‌های درونی و ایجاد یک رابط ساده برای caller ها کمک می‌کند.
 
+**اعمال تکنیک وضعیت/استراتژی یا پلی‌مرفیسم:**
+ در کلاس SymbolType که یک enum است، از پلی‌مرفیسم برای مشخص کردن نوع متغیر مرتبط با هر نوع نماد استفاده شد. سپس سوئیچ کیس‌ها با استفاده از symbolType.varType جایگزین شد.
+
 **بازآرایی Separate Query From Modifier**
 
 توابع getTemp و getDateAddress در کلاس Memory همزمان یک فیلد را پرس‌وجو و تغییر می‌دادند. برای حل این موضوع توابع updateTempIndex و updateDataAddress اضافه شدند تا پرس‌وجو از تغییر دهنده جدا شود.
@@ -16,6 +19,8 @@
 - چهار تابع 
 loadRules, initializeParser, shiftAction و reduceAction
 را در کلاس Parser با استفاده از بازآرایی Extract Method تفکیک کردیم.
+
+- پارامترهای className و methodName چندین بار به‌طور مشترک استفاده می‌شدند. برای انتقال این پارامترها در SymbolTable، کلاس جدیدی به نام MethodParameters اضافه شد.
 
 ## پاسخ سوالات
 
